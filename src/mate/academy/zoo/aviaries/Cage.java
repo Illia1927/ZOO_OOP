@@ -1,26 +1,9 @@
 package mate.academy.zoo.aviaries;
 
-import mate.academy.hw.zoo.animals.Animal;
+import mate.academy.zoo.animals.Interface.Animal;
 
-import java.util.ArrayList;
-import java.util.List;
+public interface Cage<T extends Animal> {
+    void feed();
 
-public abstract class Cage implements Zoo<Animal> {
-
-    private List<Animal> animalCage = new ArrayList<>();
-
-    public void setAnimalCage(Animal animal) {
-        this.animalCage.add(animal);
-    }
-
-    @Override
-    public void addAnimal(Animal animal) {
-       setAnimalCage(animal);
-        System.out.println(animalCage.size());
-    }
-
-    @Override
-    public void feed() {
-        animalCage.stream().forEach(animal -> animal.toEat());
-    }
+    void addAnimals(T animal);
 }

@@ -1,10 +1,23 @@
 package mate.academy.zoo.aviaries;
 
-import mate.academy.hw.zoo.animals.Animal;
-import mate.academy.hw.zoo.animals.Fish;
+import mate.academy.zoo.animals.Interface.Fish;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Aquarium extends Cage implements Zoo<Animal> {
+public class Aquarium implements Cage<Fish>{
 
+    private List<Fish> fishs = new ArrayList<>();
+
+    @Override
+    public void feed() {
+        for (Fish fish : fishs) {
+            fish.toEat();
+        }
+    }
+
+    @Override
+    public void addAnimals(Fish fish) {
+        fishs.add(fish);
+    }
 }
